@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize Firebase Auth and Firestore
     const auth = firebase.auth();
     const db = firebase.firestore();
 
-    // Elements
     const todoInput = document.getElementById('task-input'); 
     const todoList = document.getElementById('todo-list');
     const completedCountElem = document.getElementById('completed-count');
@@ -15,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentUser = null;
     let completedCount = 0;
 
-    // Check authentication state
     auth.onAuthStateChanged((user) => {
         if (user) {
             currentUser = user;
@@ -73,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function addTodoToServer(todoText, priority) {
-        const nextOrder = Date.now(); // Using timestamp as order
+        const nextOrder = Date.now();
         db.collection('todos').add({
             userId: currentUser.uid,
             todo: todoText,
@@ -86,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function addTodoToUI(todo) {
-        console.log('Adding todo to UI:', todo); // Debugging log
+        console.log('Adding todo to UI:', todo); 
     
         const listItem = document.createElement('li');
         const moveIcon = document.createElement('span');
@@ -102,9 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
         optionsBtn.className = 'options-button';
         priorityIndicator.className = 'priority-indicator';
     
-        moveIcon.innerHTML = '&#9776;'; // Hamburger icon
+        moveIcon.innerHTML = '&#9776;';
         todoSpan.textContent = todo.todo;
-        optionsBtn.textContent = '\u22EE'; // Vertical ellipsis
+        optionsBtn.textContent = '\u22EE'; 
     
         priorityIndicator.style.backgroundColor = todo.priority || 'white';
     
@@ -120,7 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
             moveIcon.style.display = 'none';
         }
     
-        // Event Listeners
         todoSpan.addEventListener('click', () => toggleComplete(listItem));
         optionsBtn.addEventListener('click', (e) => {
             e.stopPropagation();
