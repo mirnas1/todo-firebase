@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="logout-container" id="logout-container" style="display: none;">
+        <a href="#" id="logout-btn">Logout</a>
+    </div>
+
+    <div class="todo-app">
+        <h1><span id="username"></span>'s To-Do List</h1>
+        <div class="input-container">
+            <input type="text" id="task-input" placeholder="Add a new task..." autocomplete="off">
+        </div>
+        <ul id="todo-list"></ul>
+        <div class="completed-section">
+            <span>Completed: <span id="completed-count">0</span></span>
+            <button id="clear-completed">Clear Completed Tasks</button>
+        </div>
+    </div>
+
+    <!-- Firebase JS SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Your Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCA4mC0vicO98RzGfmkccLeK1UTU2LeVmY",
+            authDomain: "ameertodofirebase.firebaseapp.com",
+            projectId: "ameertodofirebase",
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="index.js"></script>
+</body>
+</html>
