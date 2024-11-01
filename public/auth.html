@@ -30,7 +30,6 @@
         </div>
     </div>
 
-    <!-- Firebase JS SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
@@ -57,7 +56,6 @@
             }
         }
 
-        // Handle login form submission
         document.getElementById('loginForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const email = document.getElementById('login-email').value.trim();
@@ -72,8 +70,7 @@
                     document.getElementById('error-message').textContent = error.message;
                 });
         });
-
-        // Handle registration form submission
+        
         document.getElementById('registerForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const email = document.getElementById('register-email').value.trim();
